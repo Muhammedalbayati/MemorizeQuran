@@ -55,6 +55,7 @@
 
 .suraHeaderText {
   font-family: "Times New Roman";
+  direction: rtl !important;
   font-weight: bold;
   font-size: 16px;
   text-align: center;
