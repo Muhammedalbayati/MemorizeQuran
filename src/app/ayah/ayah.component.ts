@@ -74,6 +74,7 @@ export class AyahComponent implements OnInit {
     this.filteredVerses = this.allVerses.filter(el => (el.suraId == formValues.suraId) && el.verseId >= Number(formValues.fromVerse) && el.verseId <= parseInt(formValues.toVerse))
     this.selectedSuraName = this.filteredVerses[0].suraName
     this.totalAyat = Number(this.suraIndexes.filter(x => x.suraId == formValues.suraId).map(x => x.totalAya))
+
   }
 
 
@@ -84,9 +85,9 @@ export class AyahComponent implements OnInit {
     //  console.log(formValues)
     this.filteredVerses = []
     this.filteredVerses = this.allVerses.filter(el => (el.suraId == formValues.suraId) && el.verseId >= Number(formValues.fromVerse) && el.verseId <= this.totalAyat)
-    this.selectedSuraName = this.filteredVerses[0].suraName
+    this.selectedSuraName = this.filteredVerses[0].suraName 
     this.suraForm.controls['toVerse'].setValue(this.totalAyat)
-
+    this.suraForm.controls['fromVerse'].setValue(1)
   }
 
 

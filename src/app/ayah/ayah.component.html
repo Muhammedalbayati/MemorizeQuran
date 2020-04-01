@@ -1,4 +1,4 @@
-<form>
+<form style="direction: rtl !important;">
     <div class="quranText" id="quranText" class="container" [class.show]="show"
         style="text-align: justify; font-family: KFGQPC Uthman Taha Naskh , KFGQPC_Naskh; font-size: 1.5em; font-weight: normal;">
         <div class="suraHeaderFrame">
@@ -11,9 +11,10 @@
         <span class="aya" *ngFor="let aya of filteredVerses ; let i=index">
 
             <span *ngIf="!hideVerses">
-                <span class="aya-wrapper" style="background-color: transparent;direction: rtl !important;">
-                    <span class="ayaText">{{aya.ayahText}}</span>
-                    <span class="ayaNumber" style="font-size: 0.7em;"> ﴿<a> {{aya.verseId}} </a>﴾</span>
+                <span class="aya-wrapper" style="background-color: transparent;">
+                    <span class="ayaText" style="direction: rtl !important;">{{aya.ayahText}}</span>
+                    <span class="ayaNumber" style="font-size: 0.7em;"> ﴿<a> {{aya.verseId}}
+                        </a>﴾</span>
                 </span>
             </span>
 
@@ -22,6 +23,7 @@
                 <span class="aya-wrapper" style="background-color: transparent;direction: rtl !important;"
                     *ngIf="rowIndex!=i  || !show" (click)="toggle(i)">
                     <span class="ayaText">{{aya.ayahText.substr(0, 20)}}</span>
+
                     <span style="color: blue;">
                         <i class="fas fa-ellipsis-h"></i>
                     </span>
@@ -56,7 +58,7 @@
     <form class="form-row" [formGroup]="suraForm" validate>
 
 
-        <div class="col-6" style="align-content: center;">
+        <div class="col-6" style="align-content: center;padding-left: 30px;">
 
             <select id="suraId" class="form-control" formControlName="suraId" (change)="suraChanged()" min='1'>
                 <option *ngFor="let suraIndex of suraIndexes" [ngValue]="suraIndex.suraId">
@@ -74,7 +76,7 @@
             <div class="row">
                 <div class="col">
 
-                    <label class="checkbox-inline" for="checkboxes-0" style="padding: 5px;">
+                    <label class="checkbox-inline" for="checkboxes-0" style="padding-left: 30px;font-size: 25px;">
                         <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1"
                             (change)="toggleHideVerses()">
                         اخفاء
@@ -82,15 +84,16 @@
 
                 </div>
                 <div class="col" style="padding: 5px;">
-                    <input type="number" formControlName="toVerse" class="form-control" (change)="getFilteredVerses()">
+                    <input type="number" formControlName="toVerse" class="form-control" (keyup)="getFilteredVerses()">
                 </div>
+                <br />
+                الى
                 <div class="col" style="padding: 5px;">
-                    <input type="number" formControlName="fromVerse" class="form-control"
-                        (change)="getFilteredVerses()">
+                    <input type="number" formControlName="fromVerse" class="form-control" (keyup)="getFilteredVerses()">
                 </div>
                 <div class="col" style="padding: 5px;">
 
-                    <label>تحفيظ القران</label>
+                    <label>عرض الايات<br /> من</label>
                 </div>
             </div>
         </div>
