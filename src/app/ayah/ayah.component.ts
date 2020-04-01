@@ -22,9 +22,7 @@ export class AyahComponent implements OnInit {
   selectedSuraName: string;
   totalAyat: number;
 
-  arabicNormChar = {
-    'ك': 'ک', 'ﻷ': 'لا', 'ؤ': 'و', 'ى': 'ی', 'ي': 'ی', 'ئ': 'ی', 'أ': 'ا', 'إ': 'ا', 'آ': 'ا', 'ٱ': 'ا', 'ٳ': 'ا', 'ة': 'ه', 'ء': '', 'ِ': '', 'ْ': '', 'ُ': '', 'َ': '', 'ّ': '', 'ٍ': '', 'ً': '', 'ٌ': '', 'ٓ': '', 'ٰ': '', 'ٔ': '', '�': ''
-  }
+
 
   ayahTrimed: string
 
@@ -98,7 +96,7 @@ export class AyahComponent implements OnInit {
 
   replaceAll(orgTxt, replacement) {
     this.ayahTrimed = ""
-    console.log(orgTxt + ' ' + replacement)
+    // console.log(orgTxt + ' ' + replacement)
     var noTashkel=this.removeTashkeel1(orgTxt)//this.removeTashkeel(orgTxt)
     this.ayahTrimed = noTashkel.replace(/./g, '-');
     // console.log('strip tashkeel ' + this.stripTashkeel(orgTxt))
