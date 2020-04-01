@@ -114,6 +114,9 @@
   font-family: "Traditional Arabic", "Times New Roman";
 }
 
+.besm {
+  text-align: center;
+}
 
 .transText .aya.selected,
 .transText .aya.selected .ayaNumber {}

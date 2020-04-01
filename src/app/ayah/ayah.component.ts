@@ -96,13 +96,8 @@ export class AyahComponent implements OnInit {
 
   replaceAll(orgTxt, replacement) {
     this.ayahTrimed = ""
-    // console.log(orgTxt + ' ' + replacement)
-    var noTashkel=this.removeTashkeel1(orgTxt)//this.removeTashkeel(orgTxt)
+    var noTashkel = this.removeTashkeel1(orgTxt)//this.removeTashkeel2(orgTxt)
     this.ayahTrimed = noTashkel.replace(/./g, '-');
-    // console.log('strip tashkeel ' + this.stripTashkeel(orgTxt))
-    //     var pattern = orgTxt
-    //     var re = new RegExp(pattern, "g");
-    // this.ayahTrimed=re
     return this.ayahTrimed
   }
 
@@ -134,31 +129,17 @@ export class AyahComponent implements OnInit {
   }
 
 
-  
-// ********************** This code below is to remove tashkeel from Quranic letters- keep it for reference *******************
-removeTashkeel2(orgTxt){
-  var noTashkel = orgTxt.replace(/([^\u0621-\u064A\u0660-\u0669\u066E-\u06D5\u06EE\u06EF\u06FA-\u06FC\u06FF\u06F9a-zA-Z 0-9])/g, '');
-  return noTashkel
-}
-// ************************************************************
   getSuraIndexes() {
     this.ayahService.getSuraIndexes()
       .subscribe(
         _data => this.suraIndexes = _data,
         error => this.errorMsg = <any>error,
-        () => {
-          // this.getAyatNumbers();
-          // console.log(this.suraIndexes)
-
-        }
+        () => { }
       )
   }
 
   toggleHideVerses() {
-    // var formValues = this.suraForm.getRawValue();
-    // this.suraForm.controls['hideVerses'].setValue(!formValues.hideVerses)
     this.hideVerses = !this.hideVerses
-    // console.log(this.hideVerses)
   }
 
   openNav() {
@@ -169,6 +150,17 @@ removeTashkeel2(orgTxt){
   closeNav() {
     document.getElementById("mySidenav").style.width = "0";
   }
+
+  // ********************** This code below is to remove tashkeel from Quranic letters- keep it for reference *******************
+  removeTashkeel2(orgTxt) {
+    var noTashkel = orgTxt.replace(/([^\u0621-\u064A\u0660-\u0669\u066E-\u06D5\u06EE\u06EF\u06FA-\u06FC\u06FF\u06F9a-zA-Z 0-9])/g, '');
+    return noTashkel
+  }
+  // ************************************************************
+
+
+
+
 
 
   // handleLookup(suraId: number) { //, verseId: number
