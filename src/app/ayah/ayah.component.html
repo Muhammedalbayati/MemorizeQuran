@@ -12,30 +12,30 @@
 
             <span *ngIf="!hideVerses">
                 <span class="aya-wrapper" style="background-color: transparent;">
-                    <span class="ayaText" style="direction: rtl !important;">{{aya.ayahText}}</span>
-                    <span class="ayaNumber" style="font-size: 0.7em;"> ﴿<a> {{aya.verseId}}
-                        </a>﴾</span>
+                    <span class="ayaText">{{aya.ayahText}}</span>
+                    <span class="ayaNumber" style="font-size: 0.7em;">﴿<a>{{aya.verseId}}</a>﴾</span>
                 </span>
             </span>
 
 
             <span *ngIf="hideVerses">
-                <span class="aya-wrapper" style="background-color: transparent;direction: rtl !important;"
-                    *ngIf="rowIndex!=i  || !show" (click)="toggle(i)">
+                <span class="aya-wrapper" style="background-color: transparent;" *ngIf="rowIndex!=i  || !show" (click)="toggle(i)">
                     <span class="ayaText">{{aya.ayahText.substr(0, 20)}}</span>
+                    <!-- The line below is to get all trimed charachters to repalcae them with dash (-) -->
+                    <!-- <span class="ayaText">{{aya.ayahText.slice(20,aya.ayahText.length)}}</span>  -->
+                    <span class="ayaText">{{replaceAll(aya.ayahText.slice(20,aya.ayahText.length),'-')}}</span>
 
-                    <span style="color: blue;">
+                    <!-- <span style="color: blue;">
                         <i class="fas fa-ellipsis-h"></i>
-                    </span>
+                    </span> -->
                     <span class="ayaNumber" style="font-size: 0.7em;">﴿<a>{{aya.verseId}}</a>﴾</span>
                 </span>
 
-                <span class="aya-wrapper" style="background-color: transparent;direction: rtl !important;"
-                    *ngIf="rowIndex==i && show" (click)="toggle(i)">
+                <span class="aya-wrapper" style="background-color: transparent;" *ngIf="rowIndex==i && show" (click)="toggle(i)">
                     <span class="ayaText">{{aya.ayahText}}</span>
-                    <span style="color: red;font-size: 20px;">
+                    <!-- <span style="color: red;font-size: 20px;">
                         <i class="fas fa-eye-slash"></i>
-                    </span>
+                    </span> -->
                     <span class="ayaNumber" style="font-size: 0.7em;">﴿<a>{{aya.verseId}}</a>﴾</span>
                 </span>
             </span>

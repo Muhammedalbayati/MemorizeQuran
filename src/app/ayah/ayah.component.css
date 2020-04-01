@@ -94,7 +94,8 @@
   color: #050;
   cursor: pointer;
   font-weight: bold;
-  padding-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .ayaNumber a {

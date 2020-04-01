@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AyahService } from "../ayah.service";
 import { Ayah } from "../models/ayah";
@@ -11,7 +11,7 @@ import { Options } from 'ng5-slider';
   styleUrls: ['./ayah.component.css']
 })
 export class AyahComponent implements OnInit {
-  //  @Input() ayah: Ayah
+  @Output() onCreate: EventEmitter<any> = new EventEmitter<any>();
   show = false;
   rowIndex: number;
   hideVerses = false;
@@ -21,6 +21,12 @@ export class AyahComponent implements OnInit {
   errorMsg: string;
   selectedSuraName: string;
   totalAyat: number;
+
+  arabicNormChar = {
+    'ك': 'ک', 'ﻷ': 'لا', 'ؤ': 'و', 'ى': 'ی', 'ي': 'ی', 'ئ': 'ی', 'أ': 'ا', 'إ': 'ا', 'آ': 'ا', 'ٱ': 'ا', 'ٳ': 'ا', 'ة': 'ه', 'ء': '', 'ِ': '', 'ْ': '', 'ُ': '', 'َ': '', 'ّ': '', 'ٍ': '', 'ً': '', 'ٌ': '', 'ٓ': '', 'ٰ': '', 'ٔ': '', '�': ''
+  }
+
+  ayahTrimed: string
 
   suraForm = this.fb.group({
     suraId: [1],
@@ -85,17 +91,58 @@ export class AyahComponent implements OnInit {
     //  console.log(formValues)
     this.filteredVerses = []
     this.filteredVerses = this.allVerses.filter(el => (el.suraId == formValues.suraId) && el.verseId >= Number(formValues.fromVerse) && el.verseId <= this.totalAyat)
-    this.selectedSuraName = this.filteredVerses[0].suraName 
+    this.selectedSuraName = this.filteredVerses[0].suraName
     this.suraForm.controls['toVerse'].setValue(this.totalAyat)
     this.suraForm.controls['fromVerse'].setValue(1)
   }
 
+  replaceAll(orgTxt, replacement) {
+    this.ayahTrimed = ""
+    console.log(orgTxt + ' ' + replacement)
+    var noTashkel=this.removeTashkeel1(orgTxt)//this.removeTashkeel(orgTxt)
+    this.ayahTrimed = noTashkel.replace(/./g, '-');
+    // console.log('strip tashkeel ' + this.stripTashkeel(orgTxt))
+    //     var pattern = orgTxt
+    //     var re = new RegExp(pattern, "g");
+    // this.ayahTrimed=re
+    return this.ayahTrimed
+  }
 
-  // getSelectedSura(event: Event) {
-  //   let selectedOption = event.target['options'];
-  //   console.log(event)
-  // }
 
+  isCharTashkeel(letter) {
+    var CHARCODE_SHADDA = 1617;
+    var CHARCODE_SUKOON = 1618;
+    var CHARCODE_SUPERSCRIPT_ALIF = 1648;
+    var CHARCODE_TATWEEL = 1600;
+    var CHARCODE_ALIF = 1575;
+    if (typeof (letter) == "undefined" || letter == null)
+      return false;
+
+    var code = letter.charCodeAt(0);
+    //1648 - superscript alif
+    //1619 - madd: ~
+    return (code == CHARCODE_TATWEEL || code == CHARCODE_SUPERSCRIPT_ALIF || code >= 1612 && code <= 1631); //tashkeel
+  }
+
+  removeTashkeel1(input) {
+    var output = "";
+    //todo consider using a stringbuilder to improve performance
+    for (var i = 0; i < input.length; i++) {
+      var letter = input.charAt(i);
+      if (!this.isCharTashkeel(letter)) //tashkeel
+        output += letter;
+    }
+    return output;
+  }
+
+
+  
+// ********************** This code below is to remove tashkeel from Quranic letters- keep it for reference *******************
+removeTashkeel2(orgTxt){
+  var noTashkel = orgTxt.replace(/([^\u0621-\u064A\u0660-\u0669\u066E-\u06D5\u06EE\u06EF\u06FA-\u06FC\u06FF\u06F9a-zA-Z 0-9])/g, '');
+  return noTashkel
+}
+// ************************************************************
   getSuraIndexes() {
     this.ayahService.getSuraIndexes()
       .subscribe(
