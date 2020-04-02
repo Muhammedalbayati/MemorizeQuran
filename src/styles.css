@@ -12,6 +12,7 @@ body {
     /* padding-right: 50px !important; */
   margin: 0;
   -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: subpixel-antialiased !important;
    /* font-family: Roboto, "Helvetica Neue", sans-serif; */
    background-color:#f7fce3;}
 /* body{
