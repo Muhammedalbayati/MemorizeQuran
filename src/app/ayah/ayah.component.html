@@ -10,16 +10,15 @@
 
 
         <span class="aya" *ngFor="let aya of filteredVerses ; let i=index">
-            <div class="ayaText besm" *ngIf="aya.verseId==1">
-                <span class="ayaNumber" style="font-size: 0.7em;"
-                    *ngIf="aya.verseId==1 && aya.sureaId==1">﴿<a>{{aya.verseId}}</a>﴾</span>
+            <div class="ayaText besm" *ngIf="aya.verseId==1 && aya.suraId!=1">
+
                 بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+                <span class="ayaNumber" style="font-size: 0.7em;" *ngIf="aya.suraId==1">﴿<a>{{aya.verseId}}</a>﴾</span>
             </div>
             <span *ngIf="!hideVerses">
                 <span>
-                    <span class="ayaText" *ngIf="aya.verseId!=1 && aya.sureaId!=1">{{aya.ayahText}}</span>
-                    <span class="ayaNumber" style="font-size: 0.7em;"
-                        *ngIf="aya.verseId!=1 && aya.sureaId!=1">﴿<a>{{aya.verseId}}</a>﴾</span>
+                    <span class="ayaText">{{aya.ayahText}}</span>
+                    <span class="ayaNumber" style="font-size: 0.7em;">﴿<a>{{aya.verseId}}</a>﴾</span>
                 </span>
             </span>
 
@@ -29,10 +28,9 @@
 
             <span *ngIf="hideVerses">
                 <span *ngIf="rowIndex!=i  || !show" (click)="toggle(i)">
-                    <span class="ayaText" *ngIf="aya.verseId!=1 && aya.sureaId!=1">{{aya.ayahText.substr(0, 20)}}</span>
+                    <span class="ayaText">{{aya.ayahText.substr(0, 20)}}</span>
                     <!-- The line below is to get all trimed charachters to repalcae them with dash (-) -->
-                    <span class="ayaText" id="invisible-aya"
-                        *ngIf="aya.verseId!=1 && aya.sureaId!=1">{{aya.ayahText.slice(20,aya.ayahText.length)}}</span>
+                    <span class="ayaText" id="invisible-aya">{{aya.ayahText.slice(20,aya.ayahText.length)}}</span>
                     <!-- <span class="ayaText" *ngIf="aya.verseId!=1 && aya.sureaId!=1">{{replaceAll(aya.ayahText.slice(20,aya.ayahText.length),'-')}}</span> -->
 
                     <!-- <span style="color: blue;">
