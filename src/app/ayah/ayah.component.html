@@ -7,24 +7,16 @@
             </div>
         </div>
 
-
-
         <span class="aya" *ngFor="let aya of filteredVerses ; let i=index">
-            <div class="ayaText besm" *ngIf="aya.verseId==1 && aya.suraId!=1">
-
+            <div class="ayaText besm" *ngIf="aya.verseId==1 && !(aya.suraId===1 || aya.suraId===9)">
                 بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
-                <span class="ayaNumber" style="font-size: 0.7em;" *ngIf="aya.suraId==1">﴿<a>{{aya.verseId}}</a>﴾</span>
             </div>
             <span *ngIf="!hideVerses">
                 <span>
                     <span class="ayaText">{{aya.ayahText}}</span>
-                    <span class="ayaNumber" style="font-size: 0.7em;">﴿<a>{{aya.verseId}}</a>﴾</span>
+                    <span class="ayaNumber">﴿<a>{{aya.verseId}}</a>﴾</span>
                 </span>
             </span>
-
-
-
-
 
             <span *ngIf="hideVerses">
                 <span *ngIf="rowIndex!=i  || !show" (click)="toggle(i)">
@@ -36,17 +28,15 @@
                     <!-- <span style="color: blue;">
                         <i class="fas fa-ellipsis-h"></i>
                     </span> -->
-                    <span class="ayaNumber" style="font-size: 0.7em;"
-                        *ngIf="aya.verseId!=1 && aya.sureaId!=1">﴿<a>{{aya.verseId}}</a>﴾</span>
+                    <span class="ayaNumber">﴿<a>{{aya.verseId}}</a>﴾</span>
                 </span>
 
                 <span *ngIf="rowIndex==i && show" (click)="toggle(i)">
-                    <span class="ayaText" *ngIf="aya.verseId!=1 && aya.sureaId!=1">{{aya.ayahText}}</span>
+                    <span class="ayaText">{{aya.ayahText}}</span>
                     <!-- <span style="color: red;font-size: 20px;">
                         <i class="fas fa-eye-slash"></i>
                     </span> -->
-                    <span class="ayaNumber" style="font-size: 0.7em;"
-                        *ngIf="aya.verseId!=1 && aya.sureaId!=1">﴿<a>{{aya.verseId}}</a>﴾</span>
+                    <span class="ayaNumber">﴿<a>{{aya.verseId}}</a>﴾</span>
                 </span>
             </span>
 
@@ -81,10 +71,10 @@
                 <div class="col">
 
                     <label class="checkbox-inline" for="checkboxes-0"
-                        style="padding-left: 10px;font-size: 20px; text-align: right; direction: rtl;">
+                        style="padding-left: 10px;font-size: 20px; text-align: right; ">
+                        اخفاء الايات
                         <input type="checkbox" name="checkboxes" formControlName="hideVerses" id="checkboxes" value="1"
                             (change)="toggleHideVerses()">
-                        اخفاء الايات
                     </label>
 
                 </div>

@@ -73,7 +73,7 @@
   text-align:center !important;
   direction: rtl !important;
   font-family: "Traditional Arabic", "Times New Roman";
-  font-size: 1.15em;
+  font-size: 30px;
   /* text-align: right; */
   /* width: 412px; */
   /* margin: 0px 30px; */
@@ -100,7 +100,7 @@ text-align: center;
 }
 
 .ayaNumber {
-  font-size: .85em;
+  font-size: 20px;
   white-space: nowrap;
   color: #050;
   cursor: pointer;

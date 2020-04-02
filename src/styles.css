@@ -14,15 +14,9 @@ body {
   -webkit-text-size-adjust: none;
   -webkit-font-smoothing: subpixel-antialiased !important;
    /* font-family: Roboto, "Helvetica Neue", sans-serif; */
-   background-color:#f7fce3;}
-/* body{
-    background-image: url("src/assets/img/bgImage.gif");
-    background-color: #cccccc;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-  
-  } */
+   background-color:#f7fce3;
+  }
+
 
   /* switch css */
 .switch {
