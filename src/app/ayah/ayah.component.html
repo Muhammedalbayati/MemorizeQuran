@@ -31,7 +31,7 @@
                 <span *ngIf="rowIndex!=i  || !show" (click)="toggle(i)">
                     <span class="ayaText" *ngIf="aya.verseId!=1 && aya.sureaId!=1">{{aya.ayahText.substr(0, 20)}}</span>
                     <!-- The line below is to get all trimed charachters to repalcae them with dash (-) -->
-                    <span class="ayaText" *ngIf="aya.verseId!=1 && aya.sureaId!=1" style="opacity:0%;">{{aya.ayahText.slice(20,aya.ayahText.length)}}</span>
+                    <span class="ayaText" id="invisible-aya" *ngIf="aya.verseId!=1 && aya.sureaId!=1" style="opacity:0%;">{{aya.ayahText.slice(20,aya.ayahText.length)}}</span>
                     <!-- <span class="ayaText" *ngIf="aya.verseId!=1 && aya.sureaId!=1">{{replaceAll(aya.ayahText.slice(20,aya.ayahText.length),'-')}}</span> -->
 
                     <!-- <span style="color: blue;">
