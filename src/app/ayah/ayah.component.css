@@ -70,7 +70,7 @@
 }
   
 .quranText {
-  text-align:right !important;
+  text-align:center !important;
   direction: rtl !important;
   /* font-family: "Traditional Arabic", "Times New Roman"; */
   font-size: 1.15em;
@@ -86,7 +86,7 @@
   /* background-color: #F7FCE3; */
   font-family: "Traditional Arabic", "Times New Roman";
   font-size: 30px;
-
+text-align: center;
 }
 
 

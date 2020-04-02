@@ -31,7 +31,8 @@
                 <span *ngIf="rowIndex!=i  || !show" (click)="toggle(i)">
                     <span class="ayaText" *ngIf="aya.verseId!=1 && aya.sureaId!=1">{{aya.ayahText.substr(0, 20)}}</span>
                     <!-- The line below is to get all trimed charachters to repalcae them with dash (-) -->
-                    <span class="ayaText" id="invisible-aya" *ngIf="aya.verseId!=1 && aya.sureaId!=1" style="opacity:0%;">{{aya.ayahText.slice(20,aya.ayahText.length)}}</span>
+                    <span class="ayaText" id="invisible-aya"
+                        *ngIf="aya.verseId!=1 && aya.sureaId!=1">{{aya.ayahText.slice(20,aya.ayahText.length)}}</span>
                     <!-- <span class="ayaText" *ngIf="aya.verseId!=1 && aya.sureaId!=1">{{replaceAll(aya.ayahText.slice(20,aya.ayahText.length),'-')}}</span> -->
 
                     <!-- <span style="color: blue;">
@@ -66,9 +67,9 @@
 <div id="mySidenav" class="sidenav">
 
 
-    <form class="form-row" [formGroup]="suraForm"  validate>
+    <form class="form-row" [formGroup]="suraForm" validate>
         <div class="col-6" style="align-content: center;padding-left: 30px;">
-            <select  class="form-control" formControlName="suraId" id="suraId" (change)="suraChanged()" min='1'>
+            <select class="form-control" formControlName="suraId" id="suraId" (change)="suraChanged()" min='1'>
                 <option *ngFor="let suraIndex of suraIndexes" [ngValue]="suraIndex.suraId">
                     {{suraIndex.suraId}} - {{suraIndex.suraName}}
                 </option>
@@ -81,10 +82,11 @@
             <div class="row">
                 <div class="col">
 
-                    <label class="checkbox-inline" for="checkboxes-0" style="padding-left: 30px;font-size: 20px;">
+                    <label class="checkbox-inline" for="checkboxes-0"
+                        style="padding-left: 10px;font-size: 20px; text-align: right; direction: rtl;">
                         <input type="checkbox" name="checkboxes" formControlName="hideVerses" id="checkboxes" value="1"
                             (change)="toggleHideVerses()">
-                        اخفاء
+                        اخفاء الايات
                     </label>
 
                 </div>
@@ -96,7 +98,7 @@
                 <div class="col" style="padding: 5px;">
                     <input type="number" formControlName="fromVerse" class="form-control" (keyup)="getFilteredVerses()">
                 </div>
-                <div class="col" style="padding: 5px;">
+                <div class="col" style="padding: 5px;padding-right: 25px;">
 
                     <label>عرض الايات<br /> من</label>
                 </div>

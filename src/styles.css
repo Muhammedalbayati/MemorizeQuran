@@ -9,9 +9,10 @@ body {
     bottom:0;
     left:0;
     right:0;
-    padding-right: 50px !important;
+    /* padding-right: 50px !important; */
   margin: 0;
-   font-family: Roboto, "Helvetica Neue", sans-serif;
+  -webkit-text-size-adjust: none;
+   /* font-family: Roboto, "Helvetica Neue", sans-serif; */
    background-color:#f7fce3;}
 /* body{
     background-image: url("src/assets/img/bgImage.gif");
