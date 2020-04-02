@@ -64,19 +64,23 @@
 }
   
 .quranText {
-  text-align:justify;
+  text-align:right !important;
   direction: rtl !important;
-
+  font-family: "Traditional Arabic", "Times New Roman";
   font-size: 1.15em;
   text-align: right;
   /* width: 412px; */
-  margin: 0px 30px;
-  padding: 16px 14px;
+  /* margin: 0px 30px; */
+  /* padding: 16px 14px; */
   color: black;
 }
 
 .aya {
+  direction: rtl !important;
   background-color: #F7FCE3;
+  font-family: "Traditional Arabic", "Times New Roman";
+  font-size: 30px;
+
 }
 
 .aya.hover {
@@ -116,6 +120,8 @@
 
 .besm {
   text-align: center;
+  font-family: "Traditional Arabic", "Times New Roman";
+  font-size: 30px;
 }
 
 .transText .aya.selected,

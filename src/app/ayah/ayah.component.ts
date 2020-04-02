@@ -68,6 +68,10 @@ export class AyahComponent implements OnInit {
 
   }
 
+  storeFormData(){
+var storae=window.localStorage;
+
+  }
 
   getFilteredVerses() {
     // this.getAyatTotals()
