@@ -85,12 +85,17 @@
 .aya {
   direction: rtl !important;
   /* background-color: #F7FCE3; */
-  font-family: "Traditional Arabic", "Montserrat","sans-serif","Times New Roman";
+  font-family: "Hafs","Traditional Arabic", "Montserrat","sans-serif","Times New Roman";
+
   font-size: 30px;
 text-align: center;
 text-rendering: optimizeLegibility;
 }
 
+@font-face {
+  font-family: Hafs;
+  src: url("/assets/fonts/uthmanicHafs1-Ver13.svg") format("opentype");
+  }
 
 .aya.hover {
   background-color: #E4EEDC;
