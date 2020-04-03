@@ -85,17 +85,17 @@
 .aya {
   direction: rtl !important;
   /* background-color: #F7FCE3; */
-  font-family: "Hafs","Traditional Arabic", "Montserrat","sans-serif","Times New Roman";
+  font-family: "Traditional Arabic", "Montserrat","sans-serif","Times New Roman";
 
   font-size: 30px;
 text-align: center;
 text-rendering: optimizeLegibility;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Hafs";
-  src: url("/assets/fonts/UthmanicHafs1-Ver13.otf") format("truetype");
-  }
+  src: url("assets/fonts/UthmanicHafs1-Ver13.otf") format("truetype");
+  } */
 
 .aya.hover {
   background-color: #E4EEDC;
