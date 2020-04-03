@@ -31,15 +31,12 @@ export class AyahComponent implements OnInit {
 
   ayahTrimed: string
 
-
-
   constructor(
     private fb: FormBuilder,
     private ayahService: AyahService) { }
 
 
   ngOnInit() {
-
     this.suraForm = this.fb.group({
       suraId: [1],
       fromVerse: [1, [Validators.required, Validators.min(1)]],
@@ -50,17 +47,11 @@ export class AyahComponent implements OnInit {
     this.getAyat()
     this.getSuraIndexes()
     this.openNav()
-
-
-
   }
 
   toggle(rowIndex: number) {
-
     this.show = !this.show
     this.rowIndex = rowIndex
-
-
     // console.log(rowIndex)
   }
 
@@ -87,7 +78,7 @@ export class AyahComponent implements OnInit {
     this.sura.toVerse = formValues.toVerse
     this.sura.hideVerses = formValues.hideVerses
     console.log('surea ' + this.sura)
-
+    localStorage.setItem("suraInfo", JSON.stringify(this.sura));
   }
 
   getFilteredVerses() {

@@ -60,7 +60,7 @@
 }
 
 .suraHeaderText {
-  font-family: "Times New Roman";
+  font-family: "Traditional Arabic", "Montserrat","sans-serif","Times New Roman";
   direction: rtl !important;
   font-weight: bold;
   font-size: 16px;
@@ -72,21 +72,23 @@
 .quranText {
   text-align:center !important;
   direction: rtl !important;
-  font-family: "Traditional Arabic", "Times New Roman";
+  font-family: "Traditional Arabic", "Montserrat","sans-serif","Times New Roman";
   font-size: 30px;
   /* text-align: right; */
   /* width: 412px; */
   /* margin: 0px 30px; */
   /* padding: 16px 14px; */
   color: black;
+  text-rendering: optimizeLegibility;
 }
 
 .aya {
   direction: rtl !important;
   /* background-color: #F7FCE3; */
-  font-family: "Traditional Arabic", "Times New Roman";
+  font-family: "Traditional Arabic", "Montserrat","sans-serif","Times New Roman";
   font-size: 30px;
 text-align: center;
+text-rendering: optimizeLegibility;
 }
 
 
@@ -122,12 +124,12 @@ text-align: center;
 }
 
 .quranText .ayaNumber {
-  font-family: "Traditional Arabic", "Times New Roman";
+  font-family: "Traditional Arabic", "Montserrat","sans-serif","Times New Roman";
 }
 
 .besm {
   text-align: center;
-  font-family: "Traditional Arabic", "Times New Roman";
+  font-family: "Traditional Arabic", "Montserrat","sans-serif","Times New Roman";
   font-size: 30px;
 }
 
