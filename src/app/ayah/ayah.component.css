@@ -93,8 +93,8 @@ text-rendering: optimizeLegibility;
 }
 
 @font-face {
-  font-family: Hafs;
-  src: url("/assets/fonts/uthmanicHafs1-Ver13.svg") format("opentype");
+  font-family: "Hafs";
+  src: url("/assets/fonts/UthmanicHafs1-Ver13.otf") format("truetype");
   }
 
 .aya.hover {
